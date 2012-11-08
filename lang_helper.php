@@ -482,11 +482,12 @@ class LangHelper extends FormHelper {
     /**
      * @constructor
      */
-    public function __construct() {
+    public function __construct(View $View, $settings = array()) {
+        parent::__construct($View, $settings); 
         $this->mapper = $this->parseLangHeaders();
         $this->langCode = $this->findLangCode();
         $this->countryCode = $this->findCountryCode();
-    }
+}
 
     /**
      * Sets Defaults
