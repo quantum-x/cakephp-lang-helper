@@ -22,18 +22,18 @@ Usage
 
 Helper Class:
 
-    <?php  echo $lang->countrySelect('Foo.country'); ?>
+    <?php  echo $this->lang->countrySelect('Foo.country'); ?>
 
 Helper Class:
 
-    <?php  echo $lang->languageSelect('Foo.language'); ?>
+    <?php  echo $this->lang->languageSelect('Foo.language'); ?>
 
 You can override defaults such as:
 
 Helper Class:
 
     <?php 
-    echo $lang->countrySelect('Foo.country', array(
+    echo $this->lang->countrySelect('Foo.country', array(
         'label' => __('Choose a Country', true),
         'default' => 'ru',
         'class' => 'some-class'
@@ -43,7 +43,7 @@ Helper Class:
 Helper Class:
 
     <?php 
-        echo $lang->languageSelect('Foo.language', array(
+        echo $this->lang->languageSelect('Foo.language', array(
             'label' => __('Choose a Language', true),
             'default' => 'sp',
             'class' => 'some-class'
