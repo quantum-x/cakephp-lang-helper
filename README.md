@@ -1,4 +1,4 @@
-CakePHP Language and Country Helper
+CakePHP Language and Country Helper cakephp 2.x
 ===================================
 
 License
