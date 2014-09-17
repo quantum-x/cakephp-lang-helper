@@ -645,21 +645,22 @@ class LangHelper extends AppHelper {
      * @return string
      */
     public function countrySelect($fieldName, $options=array()) {
+
         $options = array_merge(array(
                                     'label' => __('Country', true),
                                     'default' => $this->defaultCountry,
                                     'class' => null
                                ), $options);
         $selected = $this->getSelected($fieldName);
-        if ($selected === null ||
-            !array_key_exists($selected, $this->countries)) {
-            if ($this->countryCode === null) {
+        if ($selected === null || !array_key_exists($selected, $this->countries)) {
+            if (!empty($options['default'])) {
                 $selected = $options['default'];
             }
             else {
                 $selected = $this->countryCode;
             }
         }
+
         $opts = array();
         $opts['options'] = $this->countries;
         $opts['selected'] = $selected;
@@ -688,7 +689,7 @@ class LangHelper extends AppHelper {
         $selected = $this->getSelected($fieldName);
         if ($selected === null ||
             !array_key_exists($selected, $this->languages)) {
-            if ($this->langCode === null) {
+            if (!empty($options['default'])) {
                 $selected = $options['default'];
             }
             else {
