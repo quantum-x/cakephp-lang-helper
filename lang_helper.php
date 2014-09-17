@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Outputs a country select list and/or a language select list. Automatically
  * detects language and country codes from browser headers.
@@ -38,8 +38,8 @@
  *
  */
 
-
-class LangHelper extends FormHelper {
+App::uses('FormHelper', 'View/Helper');
+class LangHelper extends AppHelper {
 
     public $helpers = array('Form');
     private $mapper = array();
@@ -483,11 +483,11 @@ class LangHelper extends FormHelper {
      * @constructor
      */
     public function __construct(View $View, $settings = array()) {
-        parent::__construct($View, $settings); 
+        parent::__construct($View, $settings);
         $this->mapper = $this->parseLangHeaders();
         $this->langCode = $this->findLangCode();
         $this->countryCode = $this->findCountryCode();
-}
+    }
 
     /**
      * Sets Defaults
@@ -646,13 +646,13 @@ class LangHelper extends FormHelper {
      */
     public function countrySelect($fieldName, $options=array()) {
         $options = array_merge(array(
-            'label' => __('Country', true),
-            'default' => $this->defaultCountry,
-            'class' => null
-        ), $options);
+                                    'label' => __('Country', true),
+                                    'default' => $this->defaultCountry,
+                                    'class' => null
+                               ), $options);
         $selected = $this->getSelected($fieldName);
         if ($selected === null ||
-                !array_key_exists($selected, $this->countries)) {
+            !array_key_exists($selected, $this->countries)) {
             if ($this->countryCode === null) {
                 $selected = $options['default'];
             }
@@ -681,13 +681,13 @@ class LangHelper extends FormHelper {
      */
     public function languageSelect($fieldName, $options=array()) {
         $options = array_merge(array(
-            'label' => __('Language', true),
-            'default' => $this->defaultLang,
-            'class' => null
-        ), $options);
+                                    'label' => __('Language', true),
+                                    'default' => $this->defaultLang,
+                                    'class' => null
+                               ), $options);
         $selected = $this->getSelected($fieldName);
         if ($selected === null ||
-                !array_key_exists($selected, $this->languages)) {
+            !array_key_exists($selected, $this->languages)) {
             if ($this->langCode === null) {
                 $selected = $options['default'];
             }
@@ -708,4 +708,3 @@ class LangHelper extends FormHelper {
     }
 
 }
-
